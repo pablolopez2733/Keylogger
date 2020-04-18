@@ -1,4 +1,4 @@
-# LogShooter
+# Remote Pyhton Keylogger Screenshooter
 This is a remote Keylogger/Spyware coded in Python for an Ethical Hacking and Cyber Security undergrad course. Once the script is running, it will log every keystroke and save it to a txt file. Plus, whenever the victim presses ENTER, the script takes a screenshot of the victim's screen and sends the picture and the log file by email. The image and log will de encoded with base 64, so I also  included a script for decoding base 64 text files. whatever you receive by mail should be pasted into the base64-string.txt file.
 
 ## DISCLAIMER:
