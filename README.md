@@ -7,7 +7,7 @@ Launching this tool against unauthorised and unwilling users is both immoral and
 ## Files:
 
 * key_log.txt: A txt file in which all the keystrokes are recorded. This is the one you will receive by email. 
-* pipPynput.sh: A shell script which installs the necessary python libraries and runs the logger.pyw file.
+* startLogger.sh: A Windows shell script which installs the necessary python libraries and runs the logger.pyw file.
 * logger.pyw: The actual script that contains the malware runs the malware. You may run this directly if you already have the Pillow and Pynput libraries installed.
 * base64-string.txt: Here we paste the base 64 string which we receive by mail. 
 * decoder.py: Run this script to decode the base64 encrypted image string. This should return a .png file named 'snap'.
@@ -15,7 +15,6 @@ Launching this tool against unauthorised and unwilling users is both immoral and
 ## Important:
 Once the script is running, to stop the malware, you must kill the process from the task manager. Otherwise it will continue to log in the background.
 
-# Disclaimer:
 
 
 
